@@ -1,5 +1,4 @@
 FROM ubuntu:18.04
-RUN apk add --no-cache bash git openssh
 
 RUN apt-get update -y && apt-get upgrade -y \
     apt-get install -y gcc \
