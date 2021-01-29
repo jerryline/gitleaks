@@ -75,7 +75,7 @@ jobs:
     - name: Checkout the code
       uses: actions/checkout@v2
     - name: Build image
-      run: docker build . --file Dockerfile --tag test:latest 
+      run: echo "the docker build should be in this step in GHE" 
    anchore-scan:
     runs-on: ubuntu-latest
     needs: [build-image]
@@ -83,7 +83,7 @@ jobs:
     - name: Checkout the code
       uses: actions/checkout@v2
     - name: Build image
-      run: docker build . --file Dockerfile2 --tag test:latest 
+      run: docker build . --file Dockerfile --tag test:latest 
     - name: Run the local Scan Action with SARIF generation enabled
       id: scan
       uses: anchore/scan-action@v2
