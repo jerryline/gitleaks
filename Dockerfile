@@ -1,9 +1,3 @@
-FROM golang:1.15.5 AS build
-WORKDIR /go/src/github.com/zricethezav/gitleaks
-ARG ldflags
-COPY . .
-RUN GO111MODULE=on CGO_ENABLED=0 go build -o bin/gitleaks -ldflags "-X="${ldflags} *.go 
-
 FROM ubuntu:18.04
 RUN apk add --no-cache bash git openssh
 
@@ -46,8 +40,9 @@ RUN pip install boto3 && \
     pip install boto==2.42.0 && \
     pip install ansible==2.10.4
     
-COPY --from=build /go/src/github.com/zricethezav/gitleaks/bin/* /usr/bin/
-ENTRYPOINT ["gitleaks"]
+WORKDIR /go/src/repoleaks
+COPY . .
+CMD ["go", "run", "main.go"]
 
 # How to use me :
 
