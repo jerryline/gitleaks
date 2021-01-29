@@ -7,18 +7,10 @@ RUN apt-get install -y gcc \
                        g++ \
                        curl \
                        jq \
-                       build-essential \
-                       libssl-dev \
-                       libffi-dev \
-                       docker \
-                      # ansible \
-                       wget \
                        openjdk-11-jre \
                        vim \
                        zip \
-                       git \
-                       ssh \
-                       awscli
+                       git 
 RUN apt-get clean
 RUN apt-get install --fix-missing
 
