@@ -16,6 +16,7 @@ Gitleaks is a SAST tool for detecting hardcoded secrets like passwords, api keys
 - High performance using [go-git](https://github.com/go-git/go-git)
 - JSON, SARIF, and CSV reporting
 - Private repo scans using key or password based authentication
+- update for a pull request, test the actions
 
 
 ### Installation
